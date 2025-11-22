@@ -1,10 +1,6 @@
 import streamlit as st
 import joblib
 import pandas as pd
-import sys, os, streamlit as st
-st.write("sys.argv:", sys.argv)
-st.write("STREAMLIT_SERVER_RUNNING:", os.environ.get("STREAMLIT_SERVER_RUNNING"))
-
 
 #st.write("Hello World!")
 #st.title("Time Estimation Model")
@@ -72,4 +68,5 @@ input_data = pd.DataFrame({
 if st.button('Predict'):
     #columns = ['Distance_km', 'Weather', 'Traffic_Level', 'Time_of_Day', 'Vehicle_Type', 'Preparation_Time_min', 'Courier_Experience_yr']
     prediction = model.predict(input_data)
+
     st.success(f"⏱️ Estimated Delivery Time: **{prediction[0]:.2f} minutes**")
